@@ -72,7 +72,28 @@ a { color: var(--accent); text-decoration: none; }
 
 /* ---- header / nav ---- */
 .nav { border-bottom: none; }
-.logo a { font-family: var(--serif); font-weight: 700; }
+.logo a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--primary);
+}
+/* amber "BL" monogram chip before the name */
+.logo a::before {
+  content: "BL";
+  font-family: var(--mono);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: #15120f;
+  background: var(--accent);
+  padding: 4px 6px;
+  border-radius: 5px;
+  line-height: 1;
+}
 #menu a { font-family: var(--mono); font-size: .92rem; }
 #menu .active { color: var(--accent); border-bottom: 2px solid var(--accent); }
 .logo-switches .nav-tag,

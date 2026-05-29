@@ -56,7 +56,7 @@ params:
     favicon: "/favicon.ico"
 
   label:
-    text: "baslevering.com"
+    text: "Bas Levering"
 
 menu:
   main:
