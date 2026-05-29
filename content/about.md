@@ -18,7 +18,9 @@ Sysadmin + security researcher based in the Netherlands. Day job in healthcare I
 
 ## Disclosures
 
-_Writeups pending coordinated disclosure._
+- **libvncclient — Tight decoder heap overflow** (GHSA-v9pm-47h4-jcq8) — pre-auth OOB write, CVSS 8.8, fixed in `6724d69`. [Writeup](/posts/libvncclient-tight-oob-write/).
+
+_More pending coordinated disclosure._
 
 ## Contact
 
