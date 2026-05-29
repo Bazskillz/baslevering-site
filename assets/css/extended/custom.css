@@ -1,0 +1,164 @@
+/* ---------------------------------------------------------------------------
+   baslevering.com — "warm minimal"
+   Near-black warm background, warm off-white text, amber accent.
+   Serif headings, generous line spacing. System font stacks only
+   (CSP font-src 'self' — no external font fetches).
+   --------------------------------------------------------------------------- */
+
+:root {
+  --radius: 6px;
+  --main-width: 720px;
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua",
+           Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Fira Code", Menlo,
+          Consolas, "Liberation Mono", monospace;
+
+  --accent: #e3a857;        /* amber */
+  --accent-soft: #f0c386;
+}
+
+/* dark is the only mode we ship (defaultTheme: dark) — warm it up */
+.dark {
+  --theme: #15120f;         /* page background */
+  --entry: #1d1813;         /* cards, code, blockquote surfaces */
+  --primary: #f3ede2;       /* headings + high-emphasis text */
+  --secondary: #b3a896;     /* muted meta text */
+  --tertiary: #2b251e;      /* hover / divider surfaces */
+  --content: #dacfbe;       /* body copy, warm off-white */
+  --code-bg: #2b251e;       /* inline code */
+  --hljs-bg: #1a1611;       /* code block background */
+  --border: #2b251e;
+}
+
+/* ---- base / reading comfort ---- */
+body {
+  font-family: var(--sans);
+  background: var(--theme);
+}
+.post-content {
+  font-size: 1.04rem;
+  line-height: 1.78;
+  letter-spacing: 0.1px;
+}
+.post-content p { margin: 0 0 1.3em; }
+
+/* ---- headings: serif, warm white ---- */
+h1, h2, h3, h4, h5, .post-title, .entry-header h2, .home-info .entry-header {
+  font-family: var(--serif);
+  letter-spacing: -0.2px;
+}
+.post-title { font-size: 2.1rem; line-height: 1.18; }
+.post-content h2 {
+  margin-top: 2.4em;
+  padding-bottom: .25em;
+  border-bottom: 1px solid var(--border);
+}
+.post-content h3 { margin-top: 1.8em; }
+
+/* ---- links: amber, underline on hover only ---- */
+a { color: var(--accent); text-decoration: none; }
+.post-content a {
+  text-decoration: underline;
+  text-decoration-color: rgba(227, 168, 87, 0.4);
+  text-underline-offset: 3px;
+}
+.post-content a:hover { text-decoration-color: var(--accent); }
+
+/* ---- selection ---- */
+::selection { background: rgba(227, 168, 87, 0.28); color: var(--primary); }
+
+/* ---- header / nav ---- */
+.nav { border-bottom: none; }
+.logo a { font-family: var(--serif); font-weight: 700; }
+#menu a { font-family: var(--mono); font-size: .92rem; }
+#menu .active { color: var(--accent); border-bottom: 2px solid var(--accent); }
+.logo-switches .nav-tag,
+header .label { font-family: var(--mono); }
+
+/* ---- home intro ---- */
+.home-info .entry-content { color: var(--secondary); font-size: 1.05rem; }
+
+/* ---- post list cards ---- */
+.post-entry {
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color .2s ease, transform .2s ease;
+}
+.post-entry:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+.entry-header h2 { font-size: 1.45rem; }
+.first-entry .entry-header h1 { font-family: var(--serif); }
+
+/* ---- meta ---- */
+.post-meta, .entry-footer, .archive-meta { color: var(--secondary); }
+
+/* ---- tags / pills ---- */
+.post-tags a, .terms-tags a {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--secondary);
+  font-family: var(--mono);
+  font-size: .8rem;
+  padding: 3px 12px;
+  transition: color .2s ease, border-color .2s ease;
+}
+.post-tags a:hover, .terms-tags a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ---- inline + block code ---- */
+code { font-family: var(--mono); }
+.post-content :not(pre) > code {
+  background: var(--code-bg);
+  color: var(--accent-soft);
+  padding: .15em .4em;
+  border-radius: 4px;
+  font-size: .88em;
+}
+.post-content pre {
+  background: var(--hljs-bg) !important;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1em 1.1em;
+}
+.post-content .highlight { border-radius: var(--radius); }
+
+/* ---- blockquote ---- */
+.post-content blockquote {
+  border-inline-start: 3px solid var(--accent);
+  background: var(--entry);
+  color: var(--secondary);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: .6em 1em;
+}
+
+/* ---- ASCII infographic ---- */
+pre.ascii-art {
+  font-family: var(--mono);
+  font-size: clamp(.62rem, 1.9vw, .82rem);
+  line-height: 1.3 !important;
+  background: var(--hljs-bg) !important;
+  border: 1px solid var(--border);
+  border-inline-start: 3px solid var(--accent);
+  border-radius: var(--radius);
+  color: var(--content);
+  padding: 1.1em 1.2em;
+  overflow-x: auto;
+}
+
+/* ---- horizontal rule ---- */
+.post-content hr { border-top: 1px solid var(--border); }
+
+/* ---- footer ---- */
+.footer { color: var(--secondary); }
+.footer a { color: var(--secondary); }
+.footer a:hover { color: var(--accent); }
