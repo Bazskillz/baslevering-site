@@ -91,7 +91,7 @@ The one that landed, the `.contains()` bypass, was acknowledged the same day I r
 
 ## A note on the journey
 
-This was the first thing I ever pointed an AI at and said "find me a critical bug." First package, first audit, first try — and it worked, which I want to be clear was lucky as much as anything. A lot of audits since have closed with no finding at all; that's the normal outcome, and it's the reason a first-try hit felt like winning a coin flip.
+This was the first thing I ever pointed an AI at and said "find me a critical bug." Okay — it wasn't *exactly* that easy, but it wasn't far off either, if you know the jargon. First package, first audit, first try — and it worked, which I want to be clear was lucky as much as anything. A lot of audits since have closed with no finding at all; that's the normal outcome, and it's the reason a first-try hit felt like winning a coin flip.
 
 What the model is genuinely good at is reading a large unfamiliar codebase fast and flagging the spots where the check and the decision drift apart — a `contains` where you'd expect an `equals`, a fallback that fails open.
 
