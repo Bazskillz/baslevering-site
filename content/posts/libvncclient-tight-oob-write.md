@@ -13,7 +13,7 @@ TocOpen: false
 A bug in libvncclient's Tight compression decoding logic (`tight.c`) can crash — or even achieve RCE in — a VNC client when a server sends crafted compressed data. The server is the attacker: no authentication, default build, default settings.
 
 - **Advisory:** GHSA-v9pm-47h4-jcq8
-- **CVE:** pending (GitHub is the CNA)
+- **CVE:** CVE-2026-50538
 - **Severity:** CVSS 3.1 = 8.8 (High) — `AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H`
 - **Affected:** libvncclient 0.9.12 → master (0.9.15+)
 - **Fix:** commit `6724d69`, merged to master 2026-05-29
@@ -117,7 +117,7 @@ filterFn(client, rx, ry + rowsProcessed, numRows);
 ## Timeline
 
 - **2026-05-24** — bug found, root-caused, and ASan / RCE PoCs built. Reported privately via GitHub Security Advisory.
-- **2026-05-29** — fix merged (`6724d69`). Advisory GHSA-v9pm-47h4-jcq8 published; CVE pending.
+- **2026-05-29** — fix merged (`6724d69`). Advisory GHSA-v9pm-47h4-jcq8 published; assigned CVE-2026-50538.
 
 The 5-day window between discovery (May 24) and a merged public fix (May 29) represents an exceptionally fast and efficient patching cycle for an open-source project.
 
